@@ -33,6 +33,12 @@ class PhotosController < ApplicationController
     end
   end
 
+  def destroy
+    @photo.destroy
+    flash[:notice] = "Photo has been deleted."
+    redirect_to @post 
+  end
+
   private
 
   def photo_params
