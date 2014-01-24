@@ -1,4 +1,6 @@
 BrcBikes::Application.routes.draw do
   root "posts#index"
-  resources :posts
+  resources :posts do 
+    resources :photos
+  end
 end
