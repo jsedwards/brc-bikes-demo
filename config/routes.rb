@@ -3,4 +3,5 @@ BrcBikes::Application.routes.draw do
   resources :posts do 
     resources :photos
   end
+  resources :users
 end
