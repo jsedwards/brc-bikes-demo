@@ -20,6 +20,25 @@ class PhotosController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @photo.update(photo_params)
+      flash[:notice] = "Photo has been updated."
+      redirect_to [@post, @photo]
+    else
+      flash[:alert] = "Photo has not been updated."
+      render action: "edit"
+    end
+  end
+
+  def destroy
+    @photo.destroy
+    flash[:notice] = "Photo has been deleted."
+    redirect_to @post 
+  end
+
   private
 
   def photo_params
