@@ -2,7 +2,8 @@ require 'spec_helper'
 
 feature "Adding Photos" do 
   before do 
-    FactoryGirl.create(:post, title: "New Bikes In Stock!")
+    user = FactoryGirl.create(:user)
+    FactoryGirl.create(:post, title: "New Bikes In Stock!", user: user)
 
     visit '/'
     click_link "New Bikes In Stock!"

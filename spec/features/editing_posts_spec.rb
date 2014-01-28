@@ -2,7 +2,13 @@ require 'spec_helper'
 
 feature 'Editing Posts' do 
   before do 
-    FactoryGirl.create(:post, title: 'New Bikes In Stock!')
+    user = FactoryGirl.create(:user)
+    bike_post = FactoryGirl.create(:post, title: 'New Bikes In Stock!')
+    bike_post.update(user: user)
+    visit '/signin'
+    fill_in "Email", with: user.email 
+    fill_in "Password", with: user.password 
+    click_button "Sign in"
     visit '/'
     click_link 'New Bikes In Stock!'
     click_link 'Edit Post'

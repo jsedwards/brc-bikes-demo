@@ -1,6 +1,7 @@
+<div id="post">
 <h2><%= @post.title %></h2>
 <p><%= @post.description %></p>
-
+<span id="author">Posted by <%= @post.user.name %></span>
 <%= link_to "Edit Post", edit_post_path(@post) %><br>
 <%= link_to "Delete Post", post_path(@post), method: :delete, 
                           data: {confirm: "Are you sure you want to delete this post?"} %><br>
@@ -10,3 +11,4 @@
     <li>#<%= photo.id %> - <%= link_to photo.title, [@post, photo] %></li>
   <% end %>
 </ul>
+</div>
