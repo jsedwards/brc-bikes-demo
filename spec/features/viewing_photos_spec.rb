@@ -2,9 +2,10 @@ require 'spec_helper'
 
 feature "Viewing Photos" do 
   before do
-    shiny_bikes = FactoryGirl.create(:post, title: 'New Bikes')
+    user = FactoryGirl.create(:user)
+    shiny_bikes = FactoryGirl.create(:post, title: 'New Bikes', user: user)
     FactoryGirl.create(:photo, post: shiny_bikes, title: 'ohh, ahh', description: 'pretty, new bikes')
-    bike_sale = FactoryGirl.create(:post, title: 'Bike Sale')
+    bike_sale = FactoryGirl.create(:post, title: 'Bike Sale', user: user)
     FactoryGirl.create(:photo, post: bike_sale, title: 'lower prices', description: 'look at the good deals')
 
     visit '/'

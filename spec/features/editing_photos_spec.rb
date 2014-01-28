@@ -1,10 +1,16 @@
 require 'spec_helper'
 
 feature "Editing Photos" do 
-    let!(:post) { FactoryGirl.create(:post) }
+    let!(:user) { FactoryGirl.create(:user) }
+    let!(:post) do 
+      post = FactoryGirl.create(:post) 
+      post.update(user: user)
+      post
+    end
     let!(:photo) { FactoryGirl.create(:photo, post: post) }
   
   before do
+    sign_in_as!(user)
     visit '/'
     click_link post.title
     click_link photo.title
