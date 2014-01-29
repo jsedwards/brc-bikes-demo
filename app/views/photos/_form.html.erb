@@ -19,6 +19,11 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </p>
+    <div>
+    <%= f.label :image, 'Image:' %>
+    <%= f.file_field(:image, accept:"image/*;capture=camera") %>
+    <%= f.hidden_field :image_cache %>
+  </div>
     <% if @photo.new_record? %>
       <%= f.submit 'Add Photo' %>
     <% else %>
