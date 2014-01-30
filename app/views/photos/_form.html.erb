@@ -21,12 +21,12 @@
   </p>
     <div>
       <% if @photo.new_record? %>
-    <%= f.label :image, 'Image:' %>
-    <%= f.file_field(:image, accept:"image/*;capture=camera") %>
-    <%= f.hidden_field :image_cache %>
-    <% else %>
-      <%= image_tag(@photo.image_url, width: 300, height: 300) %>
-        <% end %>
+        <%= f.label :image, 'Image:' %>
+        <%= f.file_field(:image, accept:"image/*;capture=camera") %>
+        <%= f.hidden_field :image_cache %>
+       <% else %>
+          <%= image_tag(@photo.image_url, width: 300, height: 300) %>
+      <% end %>
   </div>
     <% if @photo.new_record? %>
       <%= f.submit 'Add Photo' %>

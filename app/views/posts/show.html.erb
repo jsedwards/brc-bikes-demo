@@ -1,6 +1,10 @@
 <div id="post">
 <h2><%= @post.title %></h2>
 <p><%= @post.description %></p>
+<% @post.photos.each do |photo|%>
+<p>  <%= image_tag(photo.image_url, width: 300, height: 300) %></p>
+<% end %>
+
 <span id="author">Posted by <%= @post.user.name %></span>
 <%= link_to "Edit Post", edit_post_path(@post) %><br>
 <%= link_to "Delete Post", post_path(@post), method: :delete, 
@@ -8,7 +12,7 @@
 <%= link_to "Add Photo", new_post_photo_path(@post) %><br>
 <ul id="photos">
   <% @post.photos.each do |photo| %>
-    <li>#<%= photo.id %> - <%= link_to photo.title, [@post, photo] %></li>
+    <li><%= link_to photo.title, [@post, photo] %></li>
   <% end %>
 </ul>
 </div>
