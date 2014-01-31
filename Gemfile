@@ -37,6 +37,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'foundation-rails', '~> 5.0.3.1'
 
 # Use unicorn as the app server
 # gem 'unicorn'
