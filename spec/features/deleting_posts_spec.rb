@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 feature 'Deleting Posts' do 
-    user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:admin_user)
     post = FactoryGirl.create(:post, title: 'New Bikes Sale!', user: user)
 
     before do 
-      sign_in_as!(user)
+      sign_in_as!(FactoryGirl.create(:admin_user))
       visit '/'
       click_link post.title
     end
