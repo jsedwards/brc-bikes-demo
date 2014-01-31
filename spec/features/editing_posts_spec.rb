@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Editing Posts' do 
   before do 
+    sign_in_as!(FactoryGirl.create(:admin_user))
     user = FactoryGirl.create(:user)
     bike_post = FactoryGirl.create(:post, title: 'New Bikes In Stock!')
     bike_post.update(user: user)
